@@ -1,5 +1,7 @@
 # Customer Churn Analysis
 ## Deskripsi
+Analisis ini bertujuan untuk mengidentifikasi customer churn hingga prediksi kemungkinan churn
+
 ## Data & Sumber
 Sumber Data: https://www.kaggle.com/datasets/blastchar/telco-customer-churn 
 
