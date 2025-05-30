@@ -15,10 +15,22 @@ ORDER BY
 SELECT
     contract,
     paymentmethod,
-    COUNT(*) AS count_customers
+    COUNT(*) AS total_customers
 FROM
     telco.churn
 GROUP BY
     contract, paymentmethod
 ORDER BY
-    contract, count_customers DESC;
+    contract, total_customers DESC;
+
+-- Agregate persentase churn dan total charges berdasarkan jenis kontrak
+SELECT
+    contract,
+    ROUND((SUM(CASE WHEN churn= 'Yes' THEN 1 ELSE 0 END)::NUMERIC / COUNT(*)), 2) AS churn_rate,
+    ROUND(AVG(totalcharges), 2) AS avg_totalcharges
+FROM
+    telco.churn
+GROUP BY 
+    contract
+ORDER BY
+    churn_rate DESC;
