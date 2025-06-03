@@ -1,11 +1,33 @@
-name: CI
-on: [push]
+name: Python CI for Churn Analysis
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-      - name: Run tests
-        run: echo "No tests yet"
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run preprocessing pipeline
+      run: |
+        python src/preprocessing.py
+
+    - name: Test notebook runs
+      run: |
+        pip install nbconvert
+        jupyter nbconvert --execute notebooks/churn_analysis.ipynb --to html
