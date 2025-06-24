@@ -15,7 +15,7 @@ Analisis ini bertujuan untuk menganalisis perilaku customer churn hingga prediks
 ## Metodologi
 1. **Load Dataset**: 'src/load_data.py'
 2. **Exploratory Data Analysis**: 'notebooks/01_eda_modeling.ipynb'
-3. **& Data Cleaning & Feature Engineering**: 'src/preprocessing.py'
+3. **Data Cleaning & Feature Engineering**: 'src/preprocessing.py'
 4. **Modeling**: Logistic Regression, Random Forest
 5. **Evaluasi**: Classification Report, Feature Importance, ROC Curve
 6. **Dokumentasi & Visualisasi**: 'data/churn_predictions.csv'  → di‐import ke SQL untuk analisis lebih lanjut
